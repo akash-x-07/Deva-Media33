@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eBookNest — Pay to Buy</title>
+  <link rel="stylesheet" href="rozerpay.css" />
+  <!-- Razorpay Checkout script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <!-- Existing CTA section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-heading">Ready to Transform Your Life?</h2>
+      <p class="cta-subheading">
+        Download your free Gen Z Mindset eBook now and start your journey toward clarity and success!
+      </p>
+      <div class="cta-buttons">
+        <a href="GenZMindset.pdf" download class="cta-button">📘 Download Now</a>
+        <button class="cta-button buy-button" onclick="payNow(599)">💻 Buy e-Book ₹599</button>
+        <button class="cta-button hard-button" onclick="payNow(899)">📚 Buy Hard Copy ₹899</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function payNow(amount) {
+      var options = {
+        key: "rzp_test_YOUR_KEY_HERE",  // ← Replace with your Razorpay Test Key
+        amount: amount * 100,           // amount in paise
+        currency: "INR", 
+        name: "eBookNest",
+        description: amount === 599 ? "Gen Z Mindset eBook" : "Gen Z Mindset Hard Copy",
+        image: "logo.png",
+        theme: { color: "#00c3ff" },
+        handler: function(response) {
+          alert("Payment successful! ID: " + response.razorpay_payment_id);
+          window.location.href = "thankyou.html";
+        }
+      };
+      var rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>

